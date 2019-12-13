@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.1.2 (Python 3.7.4 on win32)" generated="20191118 18:04:48.896" rpa="false">
+<suite id="s1" name="TestREST" source="C:\Users\Deepak\Desktop\API-RequestLibrary\keywords\TestREST.robot">
+<test id="s1-t1" name="Hello">
+<kw name="Post" library="REST">
+<tags>
+<tag>http</tag>
+</tags>
+<doc>*Sends a POST request to the endpoint.*</doc>
+<arguments>
+<arg>https://34.89.51.214:443/api/v1/orgs/2/addresses</arg>
+<arg>body=${json}</arg>
+<arg>headers=${header}</arg>
+</arguments>
+<assign>
+<var>${resp}</var>
+</assign>
+<msg timestamp="20191118 18:04:55.690" level="INFO">${resp} = {'seconds': 0.40137, 'status': 201, 'body': {'data': {'id': 35, 'name': 3, 'address_value': '1.1.1.1/32', 'uuid': 'c7df5e55-69d1-4224-b133-20ea90368f37', 'map_id': 2, 'map': {'id': 2, 'organisation_id...</msg>
+<status status="PASS" starttime="20191118 18:04:50.735" endtime="20191118 18:04:55.690"></status>
+</kw>
+<kw name="Integer" library="REST">
+<tags>
+<tag>assertions</tag>
+</tags>
+<doc>*Asserts the field as JSON integer.*</doc>
+<arguments>
+<arg>response status</arg>
+<arg>422</arg>
+</arguments>
+<msg timestamp="20191118 18:04:55.728" level="FAIL">201 is not one of [422]
+
+Failed validating 'enum' in schema:
+    {'enum': [422], 'type': 'integer'}
+
+On instance:
+    201</msg>
+<status status="FAIL" starttime="20191118 18:04:55.691" endtime="20191118 18:04:55.728"></status>
+</kw>
+<status status="FAIL" starttime="20191118 18:04:50.734" endtime="20191118 18:04:55.730" critical="yes">201 is not one of [422]
+
+Failed validating 'enum' in schema:
+    {'enum': [422], 'type': 'integer'}
+
+On instance:
+    201</status>
+</test>
+<status status="FAIL" starttime="20191118 18:04:48.898" endtime="20191118 18:04:55.784"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1">Critical Tests</stat>
+<stat pass="0" fail="1">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" id="s1" name="TestREST">TestREST</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
